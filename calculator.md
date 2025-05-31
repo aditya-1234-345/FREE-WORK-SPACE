@@ -1,6 +1,6 @@
 IN THIS PROGRAM WE HAVE CREATED SIMPLE CALCULATOR USING JAVA...
 
-'''java
+```java
 import java.util.*;  
 import java.io.*;
 
