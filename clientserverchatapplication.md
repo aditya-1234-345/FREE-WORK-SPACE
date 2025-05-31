@@ -62,9 +62,10 @@ public class Client {
         }
     }
 }
-'''java
+
+
 ##SERVER PROGRAM:-
-'''java
+
 package king;
 
 import java.io.*;   //package for input output operations 
