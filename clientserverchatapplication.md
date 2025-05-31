@@ -63,3 +63,60 @@ public class Client {
     }
 }
 
+SERVER PROGRAM:-
+'''java
+package king;
+
+import java.io.*;   //package for input output operations 
+import java.net.*;  //package for doing socket connections
+
+public class Server {
+    public static void main(String[] args) {
+        try (ServerSocket serverSocket = new ServerSocket(20074)) {
+            System.out.println("Server is running and waiting for a client...");
+            Socket socket = serverSocket.accept();
+            System.out.println("Client connected!");
+            
+            BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
+            
+            // Receive two numbers from the client
+            int num1 = Integer.parseInt(input.readLine());
+            int num2 = Integer.parseInt(input.readLine());
+            
+            // Send choices to the client
+            output.println("Choose an operation:");
+            
+            int choice = Integer.parseInt(input.readLine());
+            String result = "";
+            
+            
+            switch (choice) {
+                case 1:
+                    result = "first number is: " + (num1 % 2 == 0 ? "Even" : "Odd") + ", second number is: " + (num2 % 2 == 0 ? "Even" : "Odd");
+                    break;
+                case 2:
+                    result = "first number is: " + (num1 >= 0 ? "Positive" : "Negative") + ", second number is: " + (num2 >= 0 ? "Positive" : "Negative");
+                    break;
+                case 3:
+                    result = "Square of first number: " + (num1 * num1) + ",square of second number is:" +(num2*num2);
+                    break;
+                case 4:
+                	socket.close();
+                	result="network disconnected";
+                	break;
+                	default:
+                    result = "Invalid choice!!!!";
+            }
+            
+            // Send result to client
+            output.println(result);
+            
+            System.out.println("Result sent to client: " + result);
+            
+            // Connections will be automatically closed by try-with-resources
+        } catch (IOException e) {
+           System.out.println(e);
+        }
+    }
+}
