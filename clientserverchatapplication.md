@@ -1,5 +1,10 @@
-WE HAVE CREATED A CLIENT SERVER CHAT APPLICATION PROGRAM BY USING THE CONCEPT OF SOCKET PROGRAMMING USED IN JAVA..
-CLIENT PROGRAM:-
+# CLIENT SERVER CHAT APPLICATION
+We have created a client-server chat application program using the concept of **socket programming** in Java.
+---
+
+## CLIENT PROGRAM
+
+```java
 package king;
 
 import java.io.*;
@@ -30,26 +35,24 @@ public class Client {
             output.println(num1);
             output.println(num2);
 
-            // Receive and display operation choices from the server
+            // Receive and display choices
             String choices = input.readLine();
             System.out.println(choices);
 
-            // Show operation choices
-            System.out.println("Choose an operation:");
-            System.out.println("1 - Check if numbers are odd or even");
-            System.out.println("2 - Check if numbers are positive or negative");
-            System.out.println("3 - Square of two numbers");
-            System.out.println("4 - Disconnect client and server");
-            System.out.print("Enter your choice: ");
-
+            // Choose an operation
+            System.out.println("Enter your choice:");
+            System.out.println("1 - Check Odd/Even");
+            System.out.println("2 - Check Positive/Negative");
+            System.out.println("3 - Square of numbers");
+            System.out.println("4 - Disconnect");
+            System.out.print("Your choice: ");
             int choice = scanner.nextInt();
             output.println(choice);
 
-            // Receive and display result from server
+            // Receive and display result
             String result = input.readLine();
             System.out.println("Server result: " + result);
 
-            // Closing resources
             scanner.close();
             socket.close();
 
@@ -59,3 +62,4 @@ public class Client {
         }
     }
 }
+
