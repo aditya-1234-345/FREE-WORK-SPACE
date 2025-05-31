@@ -62,8 +62,8 @@ public class Client {
         }
     }
 }
-
-SERVER PROGRAM:-
+'''java
+##SERVER PROGRAM:-
 '''java
 package king;
 
@@ -120,3 +120,4 @@ public class Server {
         }
     }
 }
+'''java
